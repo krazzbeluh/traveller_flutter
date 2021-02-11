@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:traveller_flutter/ui/converter/ConverterController.dart';
 import 'package:traveller_flutter/ui/geometry/MeasureSize.dart';
 
 class Converter extends StatefulWidget {
@@ -9,7 +10,10 @@ class Converter extends StatefulWidget {
   }
 }
 
-class ConverterState extends State<Converter> {
+class ConverterState extends State<Converter>
+    with AutomaticKeepAliveClientMixin {
+  ConverterController _viewController;
+
   final double _valueFontSize = 35;
   final double _currencyFontSize = 20;
   Size s;
@@ -34,12 +38,17 @@ class ConverterState extends State<Converter> {
                 height: MediaQuery.of(context).size.height / 2,
                 child: Column(
                   children: [
-                    Text(
-                      "1",
+                    TextField(
+                      controller: _viewController.textFieldController,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: _valueFontSize,
                         fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
                       ),
                     ),
                     Text(
@@ -105,7 +114,7 @@ class ConverterState extends State<Converter> {
                         size: centerButtonHeight * 0.93,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () => _viewController.didTapConvertButton(),
                   ),
                 ),
               )),
@@ -113,4 +122,13 @@ class ConverterState extends State<Converter> {
       ],
     );
   }
+
+  @override
+  void initState() {
+    _viewController = ConverterController();
+    super.initState();
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }
