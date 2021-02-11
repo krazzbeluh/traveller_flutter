@@ -55,9 +55,6 @@ class MyNavigationBarState extends State<MyNavigationBar> {
 
   Widget getBody() {
     switch (_selectedIndex) {
-      case 0:
-        return this._converter;
-        break;
       case 1:
         return this._translator;
         break;
@@ -65,7 +62,7 @@ class MyNavigationBarState extends State<MyNavigationBar> {
         return this._weather;
         break;
       default:
-        throw Error();
+        return this._converter;
         break;
     }
   }
