@@ -20,6 +20,7 @@ class ConverterState extends State<Converter>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final double centerButtonHeight = 150;
 
     return Stack(
@@ -66,33 +67,33 @@ class ConverterState extends State<Converter>
             ),
             Expanded(
                 child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                color: Colors.white,
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  children: [
-                    Text(
-                      "1",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: _valueFontSize,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  alignment: Alignment.center,
+                  child: Container(
+                    color: Colors.white,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: [
+                        Text(
+                          "1",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: _valueFontSize,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          "USD",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: _currencyFontSize,
+                          ),
+                        ),
+                      ],
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                     ),
-                    Text(
-                      "USD",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: _currencyFontSize,
-                      ),
-                    ),
-                  ],
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
-              ),
-            )),
+                  ),
+                )),
           ],
         ),
         Positioned(

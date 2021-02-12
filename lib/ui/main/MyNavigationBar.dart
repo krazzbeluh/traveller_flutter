@@ -2,11 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:traveller_flutter/ui/Translator.dart';
 import 'package:traveller_flutter/ui/Weather.dart';
+import 'package:traveller_flutter/ui/converter/converter.dart';
 import 'package:traveller_flutter/ui/main/MainController.dart';
-
-import 'file:///K:/Paul/Documents/Developpement/traveller_flutter/lib/ui/converter/Converter.dart';
+import 'package:traveller_flutter/ui/translator/Translator.dart';
 
 class MyNavigationBar extends StatefulWidget {
   MyNavigationBar({Key key}) : super(key: key);
